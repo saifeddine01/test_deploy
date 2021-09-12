@@ -6,18 +6,21 @@ node {
     }
 
     stage('checkout') {
-        checkout scm
+        //checkout scm
     }
 
     stage('npm install') {
-        sh "npm install"
+        sh "sudo npm install"
     }
 
+    stage('run app') {
+        sh "sudo npm start"
+    }
     stage('unit tests') {
-        sh "npm test -- --watch=false"
+        //sh "sudo npm test -- --watch=false"
     }
 
     stage('protractor tests') {
-        sh "npm run e2e"
+        //sh "sudo npm run e2e"
     }
 }
